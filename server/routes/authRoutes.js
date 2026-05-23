@@ -17,7 +17,7 @@ router.get(
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:5173/login", session: false }),
+  passport.authenticate("google", { failureRedirect: `${process.env.CLIENT_URL}/login`, session: false }),
   (req, res) => {
     // JWT token banao
     const token = jwt.sign(
@@ -35,10 +35,8 @@ router.get(
       avatar: req.user.avatar,
     };
 
-    // Frontend par redirect karo token ke saath
-    res.redirect(
-      `http://localhost:5173/auth/google/success?token=${token}&user=${encodeURIComponent(JSON.stringify(user))}`
-    );
+    
+    res.redirect(`${process.env.CLIENT_URL}/auth/google/success?token=${token}&user=${encodeURIComponent(JSON.stringify(user))}`)
   }
 );
 
