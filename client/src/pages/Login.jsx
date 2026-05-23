@@ -87,7 +87,7 @@ const Login = () => {
 
         {/* Google Login */}
         <a
-          href="http://localhost:5000/api/auth/google"
+          href={`${import.meta.env.VITE_API_URL}/auth/google`}
           className="w-full py-2.5 border border-gray-200 text-gray-700 text-sm rounded-lg hover:bg-gray-50 transition flex items-center justify-center gap-2"
         >
          <img
