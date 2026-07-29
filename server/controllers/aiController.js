@@ -10,7 +10,7 @@ export const generateBlog=async (req,res)=>{
         }
 
         const completion=await groq.chat.completions.create({
-            model: "llama-3.3-70b-versatile",
+            model: "openai/gpt-oss-120b",
             messages:[
                  {
                     role: "system",
@@ -66,7 +66,7 @@ export const improveBlog=async(req,res)=>{
         }
 
         const completion=await groq.chat.completions.create({
-            model:"llama-3.3-70b-versatile",
+            model:"openai/gpt-oss-120b",
             messages:[
                 {
                     role: "system",
@@ -101,7 +101,7 @@ export const suggestTags = async (req, res) => {
         }
 
         const completion = await groq.chat.completions.create({
-            model: "llama-3.3-70b-versatile",
+            model: "openai/gpt-oss-120b",
             messages: [
                 {
                     role: "system",

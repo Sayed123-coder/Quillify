@@ -26,6 +26,7 @@ const EditBlog = () => {
     content: "",
     category: "",
     thumbnail: "",
+    status: "",
   });
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
@@ -36,8 +37,8 @@ const EditBlog = () => {
     const fetchBlog = async () => {
       try {
         const response = await api.get(`/blog/get_blog/${id}`);
-        const { title, content, category, thumbnail } = response.data.blog;
-        setFormData({ title, content, category, thumbnail });
+        const { title, content, category, thumbnail, status } = response.data.blog;
+        setFormData({ title, content, category, thumbnail, status });
       } catch (err) {
         toast.error("Failed to fetch blog", err);
       } finally {
